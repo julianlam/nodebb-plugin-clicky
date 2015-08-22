@@ -6,65 +6,65 @@ var	fs = require('fs'),
 
 	db = module.parent.require('./database'),
 
-	GA = {
+	Plugin = {
 		settings: {}
 	};
 
-GA.init = function(data, callback) {
+Plugin.init = function(data, callback) {
 	function render(req, res, next) {
-		res.render('admin/plugins/google-analytics', {});
+		res.render('admin/plugins/clicky', {});
 	}
 
-	data.router.get('/admin/plugins/google-analytics', data.middleware.admin.buildHeader, render);
-	data.router.get('/api/admin/plugins/google-analytics', render);
-	data.router.get('/api/plugins/google-analytics', function(req, res) {
-		if (GA.settings) {
-			res.status(200).json(GA.settings);
+	data.router.get('/admin/plugins/clicky', data.middleware.admin.buildHeader, render);
+	data.router.get('/api/admin/plugins/clicky', render);
+	data.router.get('/api/plugins/clicky', function(req, res) {
+		if (Plugin.settings) {
+			res.status(200).json(Plugin.settings);
 		} else {
 			res.send(501);
 		}
 	});
 
 	// Load asset ID from config
-	GA.loadSettings();
+	Plugin.loadSettings();
 
 	callback();
 };
 
-GA.loadSettings = function() {
-	Meta.settings.get('google-analytics', function(err, settings) {
+Plugin.loadSettings = function() {
+	Meta.settings.get('clicky', function(err, settings) {
 		if (!err && settings.id && settings.id.length) {
-			GA.settings = settings;
+			Plugin.settings = settings;
 		} else {
-			winston.error('A Google Analytics ID (e.g. UA-XXXXX-X) was not specified. Please complete setup in the administration panel.');
+			winston.error('A Clicky Site ID (e.g. 100XXXXXX) was not specified. Please complete setup in the administration panel.');
 		}
 	});
 };
 
-GA.onConfigChange = function(hash) {
-	if (hash === 'settings:google-analytics') {
-		GA.loadSettings();
+Plugin.onConfigChange = function(hash) {
+	if (hash === 'settings:clicky') {
+		Plugin.loadSettings();
 	}
 };
 
-GA.routeMenu = function(custom_header, callback) {
+Plugin.routeMenu = function(custom_header, callback) {
 	custom_header.plugins.push({
-		"route": '/plugins/google-analytics',
+		"route": '/plugins/clicky',
 		"icon": 'fa-bar-chart-o',
-		"name": 'Google Analytics'
+		"name": 'Clicky Web Analytics'
 	});
 
 	callback(null, custom_header);
 };
 
-GA.getNotices = function(notices, callback) {
+Plugin.getNotices = function(notices, callback) {
 	notices.push({
-		done: GA.settings.id !== undefined && GA.settings.id.length > 0,
-		doneText: 'Google Analytics OK',
-		notDoneText: 'Google Analytics needs setup'
+		done: Plugin.settings.id !== undefined && Plugin.settings.id.length > 0,
+		doneText: 'Clicky Web Analytics OK',
+		notDoneText: 'Clicky Web Analytics needs setup'
 	});
 
 	callback(null, notices);
 }
 
-module.exports = GA;
+module.exports = Plugin;

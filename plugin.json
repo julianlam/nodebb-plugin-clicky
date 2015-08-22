@@ -1,8 +1,8 @@
 {
-    "id": "nodebb-plugin-google-analytics",
-    "name": "Google Analytics",
-    "description": "Google Analytics for NodeBB",
-    "url": "https://github.com/julianlam/nodebb-plugin-google-analytics",
+    "id": "nodebb-plugin-clicky",
+    "name": "Clicky Web Analytics",
+    "description": "Clicky Web Analytics for NodeBB",
+    "url": "https://github.com/julianlam/nodebb-plugin-clicky",
     "library": "./index.js",
     "templates": "templates",
     "scripts": [

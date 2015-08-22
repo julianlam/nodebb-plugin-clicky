@@ -1,21 +1,21 @@
 {
-  "name": "nodebb-plugin-google-analytics",
+  "name": "nodebb-plugin-clicky",
   "version": "0.5.4",
-  "description": "Google Analytics for NodeBB",
+  "description": "Clicky Web Analytics for NodeBB",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/julianlam/nodebb-plugin-google-analytics"
+    "url": "https://github.com/julianlam/nodebb-plugin-clicky"
   },
   "keywords": [
     "nodebb",
-    "google",
+    "clicky",
     "analytics"
   ],
   "author": "Julian Lam <julian@designcreateplay.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/julianlam/nodebb-plugin-google-analytics/issues"
+    "url": "https://github.com/julianlam/nodebb-plugin-clicky/issues"
   },
   "dependencies": {
     "path": "~0.4.9"
