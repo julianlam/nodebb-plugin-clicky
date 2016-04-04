@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-clicky",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Clicky Web Analytics for NodeBB",
   "main": "index.js",
   "repository": {
