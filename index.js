@@ -79,7 +79,6 @@ Plugin.logCustomData = function(req, res) {
 	}
 	var ip = req.ip;
 	var username = req.body.username || 'Guest';
-	var email = req.body.email || '';
 	var ua = req.headers['user-agent'] || '';
 	var refferer = req.headers['Referer'] || '';
 	var siteid = Plugin.settings.id;
@@ -96,8 +95,7 @@ Plugin.logCustomData = function(req, res) {
 		href: href,
 		title: title,
 		custom: {
-			username: username,
-			email: email
+			username: username
 		}
 	};
 
