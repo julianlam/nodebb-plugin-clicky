@@ -14,6 +14,8 @@
 		<div class="form-group">
 			<label for="id">Tracking ID</label>
 			<input type="text" class="form-control" id="id" name="id" placeholder="100XXXXXX" />
+			<label for="id">Admin Site key(use only if you want to enable custom user logging)</label>
+			<input type="text" class="form-control" id="adminkey" name="adminkey" placeholder="admin site key" />
 		</div>
 
 		<button class="btn btn-lg btn-primary" id="save" type="button">Save</button>
